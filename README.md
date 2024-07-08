@@ -1,6 +1,7 @@
 # Node.js Simple Login System
 
 This is a simple login system built with Node.js. It uses `express` for the server, `ejs` as the view engine, and various authentication-related dependencies to handle user login and sessions.
+> **NOTE:** Database isn't setup. Login Credentials are stored in local storage
 
 ## Dependencies
 
