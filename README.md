@@ -2,13 +2,6 @@
 
 This is a simple login system built with Node.js. It uses `express` for the server, `ejs` as the view engine, and various authentication-related dependencies to handle user login and sessions.
 
-## Features
-
-- User registration and login
-- Password hashing for secure password storage
-- Session management to keep users logged in
-- Flash messages for displaying login errors or success messages
-
 ## Dependencies
 
 - `express`
