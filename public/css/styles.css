@@ -1,0 +1,15 @@
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-control {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+form{
+    padding-bottom: 20px;
+}

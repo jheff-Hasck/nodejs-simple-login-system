@@ -2,6 +2,7 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config()
 }
 
+const path = require('path')
 const express = require('express')
 const bcrypt = require('bcrypt')
 const app = express()
@@ -36,6 +37,7 @@ app.use(session({
     saveUninitialized: false,
 }))
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
