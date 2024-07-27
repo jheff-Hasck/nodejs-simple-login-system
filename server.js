@@ -25,7 +25,8 @@ const getUserById = (id) => {
 
 initializePassport(passport, getUserByEmail, getUserById)
 
-app.set('view-engine', 'ejs')
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: false })) // parse application/x-www-form-urlencoded form data in req.body
 
 app.use(flash())
