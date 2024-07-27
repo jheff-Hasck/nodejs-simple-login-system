@@ -43,11 +43,15 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home.ejs');
 })
 
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
+// app.get('/login', checkAuthenticated, (req, res) => {
+//     res.render('index.ejs', { name: req.user.name })
+// })
+
+app.get('/index', (req, res) => {
+    res.render('index.ejs', { name: req.user.name });
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -55,7 +59,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/index',
     failureRedirect: '/login',
     failureFlash: true
 }))
@@ -89,16 +93,16 @@ app.delete('/logout', (req, res, next) => {
     })
 })
 
-function checkAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return next()
-    }
-    res.redirect('/login')
-}
+// function checkAuthenticated(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next(
+//     }
+//     res.redirect('/login')
+// }
 
 function checkNotAuthenticated(req, res, next){
     if(req.isAuthenticated()){
-        return res.redirect('/')
+        return res.redirect('/index')
     }
     next();
 }
